@@ -147,3 +147,140 @@ h2 { font-size: clamp(39px, 5vw, 65px); line-height: 1.12; letter-spacing: -3.5p
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Accessibility and interaction refinements */
+:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 12px 16px;
+  color: var(--bg);
+  background: var(--lime);
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 800;
+  transform: translateY(-160%);
+  transition: transform .2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.menu-toggle {
+  color: var(--lime);
+  cursor: pointer;
+}
+
+.menu-toggle:focus-visible,
+.button:focus-visible,
+.project-link:focus-visible {
+  outline-offset: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-radius: 0;
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  outline: none;
+  border-bottom-color: var(--lime);
+  box-shadow: 0 1px 0 var(--lime);
+}
+
+.submit-button:disabled {
+  cursor: wait;
+  opacity: .7;
+  transform: none;
+}
+
+.form-status {
+  max-width: 440px;
+}
+
+.form-status-error {
+  color: #ff9a8c;
+}
+
+.form-status-not-configured {
+  color: #e6c77a;
+}
+
+.project-link {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 850px) {
+  h1 {
+    letter-spacing: -3.5px;
+  }
+
+  .hero-art {
+    width: min(36vw, 330px);
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    min-height: 760px;
+  }
+
+  .hero-art {
+    width: min(62vw, 250px);
+    right: 2%;
+    bottom: 68px;
+  }
+
+  .hero-foot {
+    gap: 10px;
+    font-size: 8px;
+  }
+
+  .scroll-line {
+    width: 34px;
+  }
+
+  .contact-form {
+    min-width: 0;
+  }
+
+  .contact-layout h2 {
+    font-size: clamp(52px, 14vw, 66px);
+  }
+
+  .site-footer {
+    row-gap: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .section-wrap {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .hero-foot {
+    left: 6%;
+    right: 6%;
+  }
+
+  .project-card {
+    grid-template-columns: 24px minmax(0, 1fr) 32px;
+    gap: 9px;
+  }
+}
+
