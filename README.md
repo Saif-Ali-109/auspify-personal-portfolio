@@ -1,18 +1,18 @@
-# Saif Ali — Personal Portfolio
+# Saif Ali — Full Stack Developer
 
-A responsive personal portfolio built with React, TypeScript, and Vite. The interface includes an introduction, about section, selected projects, skills, and a contact form.
+A responsive, accessible personal portfolio built with React, TypeScript, and Vite. It introduces Saif, highlights the portfolio project, outlines the development toolkit, and provides a contact form that can be connected to Formspree.
 
 **Developed as part of the Full Stack Development Internship Program at Auspify Technologies.**
 
 ## Features
 
-- Responsive layout for mobile, tablet, and desktop
-- Single-page navigation with mobile menu
-- About, work, skills, and contact sections
-- Project cards and social profile links
-- Accessible form labels and status messages
-- Optional Formspree contact-form integration
-- Reduced-motion support
+- Responsive layouts for mobile, tablet, and desktop
+- Sticky navigation with an accessible mobile menu
+- Intro, about, project, skills, and contact sections
+- Reduced-motion support and visible keyboard focus states
+- Contact form with validation, loading, success, and error feedback
+- Optional Formspree integration through an environment variable
+- No fabricated project links or placeholder email address
 
 ## Tech stack
 
@@ -21,46 +21,55 @@ A responsive personal portfolio built with React, TypeScript, and Vite. The inte
 - Vite
 - CSS
 
+## Requirements
+
+- Node.js 18 or later
+- npm
+
 ## Run locally
 
-1. Install Node.js (18 or later).
-2. Clone this repository.
-3. Install dependencies:
+```bash
+git clone https://github.com/Saif-Ali-109/auspify-personal-portfolio.git
+cd auspify-personal-portfolio
+npm install
+npm run dev
+```
 
-   ```bash
-   npm install
-   ```
+Open the local URL printed by Vite (normally `http://localhost:5173`).
 
-4. Start the development server:
+## Production build
 
-   ```bash
-   npm run dev
-   ```
+```bash
+npm run build
+npm run preview
+```
 
-5. Create a production build:
-
-   ```bash
-   npm run build
-   ```
+The production files are generated in `dist/`.
 
 ## Configure the contact form
 
-The form uses an optional Formspree endpoint. Create a form with Formspree, copy its endpoint, and add it as `VITE_FORMSPREE_ENDPOINT` in your deployment provider's environment variables. For local use, copy `.env.example` to `.env` and add the endpoint. Restart the dev server after changing environment variables.
+The form uses Formspree as an optional message endpoint.
 
-Without an endpoint, the form displays setup guidance instead of pretending that a message was delivered.
+1. Create a form in Formspree and copy its endpoint.
+2. For local development, copy `.env.example` to `.env.local`.
+3. Set `VITE_FORMSPREE_ENDPOINT` to your real endpoint.
+4. Restart the Vite development server.
+
+For deployment, add the same variable in your hosting provider's project environment settings, then redeploy. Do not commit private keys or credentials. If the endpoint is not configured, the form explains how to reach out rather than pretending to send a message.
 
 ## Personalize before publishing
 
-Review the project descriptions and links in `src/App.tsx`. Replace placeholder project destinations, the example email address, and social links with verified details before sharing the site publicly. Do not publish private contact information.
+Review the copy in `src/App.tsx`. Add only verified project links, professional profiles, and contact details. Update the location or availability statement if it changes. Avoid publishing private personal information.
 
 ## Deploy
 
-This is a standard Vite application and can be deployed to Vercel, Netlify, or any static host that supports Vite.
+This is a standard Vite static application and can be hosted on Vercel, Netlify, or another static host.
 
-- Build command: `npm run build`
-- Output directory: `dist`
-
-For Vercel, import this GitHub repository and keep the detected Vite settings. For Netlify, use the build command and publish directory above.
+| Setting | Value |
+| --- | --- |
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Node version | `18+` |
 
 ## Internship submission
 
